@@ -41,6 +41,7 @@ namespace Farmacia
             {
                 listaMedicamentosBindingSource.ResetBindings(false);
                 DeshabilitarHabilitarbotones(true);
+                MessageBox.Show("Medicamento Guardado");
             }
             else
             {
@@ -76,6 +77,7 @@ namespace Farmacia
             if (idTextBox.Text != "")
             {
                 var resultado = MessageBox.Show("Desea eliminar este medicamento?", "Eliminar", MessageBoxButtons.YesNo);
+
                 if (resultado == DialogResult.Yes)
                 {
 
@@ -83,11 +85,8 @@ namespace Farmacia
                     Eliminar(id);
 
                 }
-     
-                
-                }
-        
-            }
+            }        
+        }
         
 
         private void Eliminar(int id)
@@ -111,6 +110,11 @@ namespace Farmacia
         {
             DeshabilitarHabilitarbotones(true);
             Eliminar(0);
+        }
+
+        private void FormMedicamentos_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

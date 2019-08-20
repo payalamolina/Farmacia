@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,43 +10,25 @@ namespace BL.Farmacia
 {
     public class MedicamentosBL
     {
+
+        Contexto _contexto;
+
         public BindingList<Medicamento> listaMedicamentos { get; set; }
 
         public MedicamentosBL()
         {
-            listaMedicamentos = new BindingList<Medicamento>();
 
-            var medicamento1 = new Medicamento();
+            _contexto = new Contexto();
 
-            medicamento1.Id = 1;
-            medicamento1.Descripcion = "Aspirina";
-            medicamento1.Precio = 10;
-            medicamento1.Existencia = 120;
-            medicamento1.Activo = true;
-
-            var medicamento2 = new Medicamento();
-
-            medicamento2.Id = 2;
-            medicamento2.Descripcion = "Amoxicilina";
-            medicamento2.Precio = 25;
-            medicamento2.Existencia = 150;
-            medicamento2.Activo = true;
-
-            var medicamento3 = new Medicamento();
-
-            medicamento3.Id = 3;
-            medicamento3.Descripcion = "Panadol";
-            medicamento3.Precio = 7;
-            medicamento3.Existencia = 80;
-            medicamento3.Activo = true;
-
-            listaMedicamentos.Add(medicamento1);
-            listaMedicamentos.Add(medicamento2);
-            listaMedicamentos.Add(medicamento3);
+            listaMedicamentos = new BindingList<Medicamento>();           
         }
 
         public BindingList<Medicamento> ObtenerMedicamentos()
         {
+
+            _contexto.Medicamentos.Load();
+            listaMedicamentos = _contexto.Medicamentos.Local.ToBindingList();
+
             return listaMedicamentos;
         }
 
@@ -58,10 +41,7 @@ namespace BL.Farmacia
                 return resultado;
             }
 
-            if (medicamento1.Id == 0)
-            {
-                medicamento1.Id = listaMedicamentos.Max(item => item.Id) + 1;
-            }
+            _contexto.SaveChanges();
 
             resultado.Exitoso = true;
             return resultado;
@@ -80,11 +60,13 @@ namespace BL.Farmacia
                 if (medicamento.Id == id)
                 {
                     listaMedicamentos.Remove(medicamento);
+                    _contexto.SaveChanges();
                     return true;
                 }
             }
             return false;
         }
+
         private Resultado Validar(Medicamento medicamento1)
         {
             var resultado = new Resultado();

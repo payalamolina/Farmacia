@@ -285,7 +285,6 @@
             this.idTextBox.ReadOnly = true;
             this.idTextBox.Size = new System.Drawing.Size(180, 20);
             this.idTextBox.TabIndex = 8;
-           
             // 
             // precioTextBox
             // 
@@ -313,6 +312,7 @@
             this.Controls.Add(this.listaMedicamentosBindingNavigator);
             this.Name = "FormMedicamentos";
             this.Text = "Medicamentos";
+            this.Load += new System.EventHandler(this.FormMedicamentos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.listaMedicamentosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.listaMedicamentosBindingNavigator)).EndInit();
             this.listaMedicamentosBindingNavigator.ResumeLayout(false);
