@@ -43,6 +43,9 @@
             this.reporteDeProveedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.seguridadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosYPermisosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reporteDeClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,8 +66,10 @@
             // 
             this.farmaciaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.medicamentosToolStripMenuItem,
+            this.clientesToolStripMenuItem,
             this.facturasToolStripMenuItem,
-            this.proveedoresToolStripMenuItem});
+            this.proveedoresToolStripMenuItem,
+            this.salirToolStripMenuItem});
             this.farmaciaToolStripMenuItem.Name = "farmaciaToolStripMenuItem";
             this.farmaciaToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.farmaciaToolStripMenuItem.Text = "Farmacia";
@@ -96,7 +101,7 @@
             this.ingresosDeMedicamentosToolStripMenuItem,
             this.salidasDeMedicamentosToolStripMenuItem});
             this.transaccionesToolStripMenuItem.Name = "transaccionesToolStripMenuItem";
-            this.transaccionesToolStripMenuItem.Size = new System.Drawing.Size(93, 20);
+            this.transaccionesToolStripMenuItem.Size = new System.Drawing.Size(92, 20);
             this.transaccionesToolStripMenuItem.Text = "Transacciones";
             // 
             // ingresosDeMedicamentosToolStripMenuItem
@@ -115,6 +120,7 @@
             // 
             this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.reportesDeMedicamentosToolStripMenuItem,
+            this.reporteDeClientesToolStripMenuItem,
             this.reportesDeFacturaToolStripMenuItem,
             this.reporteDeTransaccionesToolStripMenuItem,
             this.reporteDeProveedoresToolStripMenuItem});
@@ -161,6 +167,25 @@
             this.usuariosYPermisosToolStripMenuItem.Text = "Login";
             this.usuariosYPermisosToolStripMenuItem.Click += new System.EventHandler(this.usuariosYPermisosToolStripMenuItem_Click);
             // 
+            // clientesToolStripMenuItem
+            // 
+            this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.clientesToolStripMenuItem.Text = "Clientes";
+            this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
+            // 
+            // reporteDeClientesToolStripMenuItem
+            // 
+            this.reporteDeClientesToolStripMenuItem.Name = "reporteDeClientesToolStripMenuItem";
+            this.reporteDeClientesToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.reporteDeClientesToolStripMenuItem.Text = "Reporte de Clientes";
+            // 
+            // salirToolStripMenuItem
+            // 
+            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.salirToolStripMenuItem.Text = "Salir";
+            // 
             // FormMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -197,5 +222,8 @@
         private System.Windows.Forms.ToolStripMenuItem reporteDeProveedoresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem seguridadToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usuariosYPermisosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reporteDeClientesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
     }
 }

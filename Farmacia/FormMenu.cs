@@ -55,5 +55,12 @@ namespace Farmacia
 
             Login();
         }
+
+        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var formClientes = new FormClientes();
+            formClientes.MdiParent = this;
+            formClientes.Show();
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BL.Farmacia;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,13 @@ namespace Farmacia
 {
     public partial class FormLogin : Form
     {
+
+        SeguridadBL _seguridad;
+
         public FormLogin()
         {
             InitializeComponent();
+            _seguridad = new SeguridadBL();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -29,17 +34,13 @@ namespace Farmacia
             usuario = textBox1.Text;
             contrasena = textBox2.Text;
 
-            if(usuario.ToLower().Trim() == "admin" && contrasena == "123")
+            var resultado = _seguridad.Autorizar(usuario, contrasena);
+
+            if(resultado == true)
             {             
                 this.Close();
             }
-            else
-            {
-                if (usuario.ToLower().Trim() == "user" && contrasena == "456")
-                {
-                    this.Close();
-                }
-                else
+             else
                 {
                     MessageBox.Show("Usuario o Contraseña Incorrecto");
                 }
@@ -47,4 +48,3 @@ namespace Farmacia
             }
         }
     }
-}
