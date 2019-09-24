@@ -5,36 +5,41 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static BL.Farmacia.CategoriasBL;
 
 namespace BL.Farmacia
 {
     public class MedicamentosBL
     {
-
         Contexto _contexto;
 
         public BindingList<Medicamento> listaMedicamentos { get; set; }
 
         public MedicamentosBL()
         {
-
             _contexto = new Contexto();
-
-            listaMedicamentos = new BindingList<Medicamento>();           
+            listaMedicamentos = new BindingList<Medicamento>();
         }
 
         public BindingList<Medicamento> ObtenerMedicamentos()
         {
-
             _contexto.Medicamentos.Load();
             listaMedicamentos = _contexto.Medicamentos.Local.ToBindingList();
-
             return listaMedicamentos;
         }
 
-        public Resultado GuardarMedicamento(Medicamento medicamento1)
+        public void CancelarCambios()
         {
-            var resultado = Validar(medicamento1);
+            foreach (var item in _contexto.ChangeTracker.Entries())
+            {
+                item.State = EntityState.Unchanged;
+                item.Reload();
+            }
+        }
+
+        public Resultado GuardarMedicamento(Medicamento medicamento)
+        {
+            var resultado = Validar(medicamento);
 
             if (resultado.Exitoso == false)
             {
@@ -47,15 +52,18 @@ namespace BL.Farmacia
             return resultado;
         }
 
+
         public void AgregarMedicamento()
         {
             var nuevoMedicamento = new Medicamento();
-            listaMedicamentos.Add(nuevoMedicamento);
+
+            _contexto.Medicamentos.Add(nuevoMedicamento);
         }
 
-        public bool EliminarMedicamentos(int id)
+
+        public bool EliminarMedicamento(int id)
         {
-            foreach (var medicamento in listaMedicamentos)
+            foreach (var medicamento in listaMedicamentos.ToList())
             {
                 if (medicamento.Id == id)
                 {
@@ -67,51 +75,71 @@ namespace BL.Farmacia
             return false;
         }
 
-        private Resultado Validar(Medicamento medicamento1)
+        private Resultado Validar(Medicamento medicamento)
         {
             var resultado = new Resultado();
             resultado.Exitoso = true;
 
-            if (string.IsNullOrEmpty(medicamento1.Descripcion) == true)
+            if(string.IsNullOrEmpty(medicamento.Descripcion) == true)
             {
                 resultado.Mensaje = "Ingrese una Descripcion";
                 resultado.Exitoso = false;
             }
 
-            if (medicamento1.Existencia < 0)
+            if (medicamento.Existencia < 0)
             {
                 resultado.Mensaje = "La existencia debe ser mayor que cero";
                 resultado.Exitoso = false;
             }
 
-
-            if (medicamento1.Precio < 0)
+            if (medicamento.Precio < 0)
             {
                 resultado.Mensaje = "El precio debe ser mayor que cero";
                 resultado.Exitoso = false;
             }
 
+            if (medicamento.TipoId == 0)
+            {
+                resultado.Mensaje = "Seleccione un Tipo";
+                resultado.Exitoso = false;
+            }
+
+            if (medicamento.CategoriaId == 0)
+            {
+                resultado.Mensaje = "Seleccione una Categoria";
+                resultado.Exitoso = false;
+            }
+
             return resultado;
+        }
+
+
+        public class Medicamento
+        {
+            public int Id { get; set; }
+            public string Descripcion { get; set; }
+            public double Precio { get; set; }
+            public int Existencia { get; set; }
+            public int CategoriaId { get; set; }
+            public Categoria Categoria { get; set; }
+            public int TipoId { get; set; }
+            public Tipo Tipo { get; set; }
+            public byte[] Foto { get; set; }
+            public bool Activo { get; set; }
+
+            public Medicamento()
+            {
+                Activo = true;
+            }
 
         }
 
-    }
-    public class Medicamento
-    {
-        public int Id { get; set; }
-        public string Descripcion { get; set; }
-        public double Precio { get; set; }
-        public int Existencia { get; set; }
-        public bool Activo { get; set; }
+        public class Resultado
+        {
+            public bool Exitoso { get; set; }
+            public string Mensaje { get; set; }
 
+        }
     }
-    public class Resultado
-    {
-        public bool Exitoso { get; set; }
-        public string Mensaje { get; set; }
-    }
- }
-  
- 
-
+}
 
