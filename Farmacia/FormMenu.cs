@@ -62,5 +62,10 @@ namespace Farmacia
             formClientes.MdiParent = this;
             formClientes.Show();
         }
+
+        private void farmaciaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

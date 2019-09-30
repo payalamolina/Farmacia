@@ -134,6 +134,7 @@
     </None>
     <None Include="Properties\DataSources\BL.Farmacia.CategoriasBL.datasource" />
     <None Include="Properties\DataSources\BL.Farmacia.ClientesBL.datasource" />
+    <None Include="Properties\DataSources\BL.Farmacia.FacturaBL.datasource" />
     <None Include="Properties\DataSources\BL.Farmacia.MedicamentosBL+Medicamento.datasource" />
     <None Include="Properties\DataSources\BL.Farmacia.MedicamentosBL.datasource" />
     <None Include="Properties\DataSources\BL.Farmacia.SeguridadBL.datasource" />

@@ -47,7 +47,6 @@ namespace BL.Farmacia
             }
 
             _contexto.SaveChanges();
-
             resultado.Exitoso = true;
             return resultado;
         }
@@ -79,6 +78,14 @@ namespace BL.Farmacia
         {
             var resultado = new Resultado();
             resultado.Exitoso = true;
+
+            if (medicamento == null)
+            {
+                resultado.Mensaje = "Agregue un medicamento valido";
+                resultado.Exitoso = false;
+
+                return resultado;
+            }
 
             if(string.IsNullOrEmpty(medicamento.Descripcion) == true)
             {

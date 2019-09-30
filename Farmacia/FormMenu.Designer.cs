@@ -31,21 +31,21 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.farmaciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.medicamentosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.facturasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.proveedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.transaccionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ingresosDeMedicamentosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salidasDeMedicamentosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesDeMedicamentosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reporteDeClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesDeFacturaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reporteDeTransaccionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reporteDeProveedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.seguridadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosYPermisosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reporteDeClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,6 +73,7 @@
             this.farmaciaToolStripMenuItem.Name = "farmaciaToolStripMenuItem";
             this.farmaciaToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.farmaciaToolStripMenuItem.Text = "Farmacia";
+            this.farmaciaToolStripMenuItem.Click += new System.EventHandler(this.farmaciaToolStripMenuItem_Click);
             // 
             // medicamentosToolStripMenuItem
             // 
@@ -80,6 +81,13 @@
             this.medicamentosToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.medicamentosToolStripMenuItem.Text = "Medicamentos";
             this.medicamentosToolStripMenuItem.Click += new System.EventHandler(this.medicamentosToolStripMenuItem_Click);
+            // 
+            // clientesToolStripMenuItem
+            // 
+            this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.clientesToolStripMenuItem.Text = "Clientes";
+            this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
             // 
             // facturasToolStripMenuItem
             // 
@@ -95,13 +103,19 @@
             this.proveedoresToolStripMenuItem.Text = "Proveedores";
             this.proveedoresToolStripMenuItem.Click += new System.EventHandler(this.proveedoresToolStripMenuItem_Click);
             // 
+            // salirToolStripMenuItem
+            // 
+            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.salirToolStripMenuItem.Text = "Salir";
+            // 
             // transaccionesToolStripMenuItem
             // 
             this.transaccionesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ingresosDeMedicamentosToolStripMenuItem,
             this.salidasDeMedicamentosToolStripMenuItem});
             this.transaccionesToolStripMenuItem.Name = "transaccionesToolStripMenuItem";
-            this.transaccionesToolStripMenuItem.Size = new System.Drawing.Size(92, 20);
+            this.transaccionesToolStripMenuItem.Size = new System.Drawing.Size(93, 20);
             this.transaccionesToolStripMenuItem.Text = "Transacciones";
             // 
             // ingresosDeMedicamentosToolStripMenuItem
@@ -133,6 +147,12 @@
             this.reportesDeMedicamentosToolStripMenuItem.Name = "reportesDeMedicamentosToolStripMenuItem";
             this.reportesDeMedicamentosToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
             this.reportesDeMedicamentosToolStripMenuItem.Text = "Reportes de Medicamentos";
+            // 
+            // reporteDeClientesToolStripMenuItem
+            // 
+            this.reporteDeClientesToolStripMenuItem.Name = "reporteDeClientesToolStripMenuItem";
+            this.reporteDeClientesToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.reporteDeClientesToolStripMenuItem.Text = "Reporte de Clientes";
             // 
             // reportesDeFacturaToolStripMenuItem
             // 
@@ -166,25 +186,6 @@
             this.usuariosYPermisosToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
             this.usuariosYPermisosToolStripMenuItem.Text = "Login";
             this.usuariosYPermisosToolStripMenuItem.Click += new System.EventHandler(this.usuariosYPermisosToolStripMenuItem_Click);
-            // 
-            // clientesToolStripMenuItem
-            // 
-            this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
-            this.clientesToolStripMenuItem.Text = "Clientes";
-            this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
-            // 
-            // reporteDeClientesToolStripMenuItem
-            // 
-            this.reporteDeClientesToolStripMenuItem.Name = "reporteDeClientesToolStripMenuItem";
-            this.reporteDeClientesToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
-            this.reporteDeClientesToolStripMenuItem.Text = "Reporte de Clientes";
-            // 
-            // salirToolStripMenuItem
-            // 
-            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
-            this.salirToolStripMenuItem.Text = "Salir";
             // 
             // FormMenu
             // 

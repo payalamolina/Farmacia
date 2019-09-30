@@ -19,14 +19,13 @@ namespace BL.Farmacia
             _contexto = new Contexto();
 
             ListaClientes = new BindingList<Cliente>();
-
-
         }
 
         public BindingList<Cliente> ObtenerClientes()
         {
             _contexto.Clientes.Load();
             ListaClientes = _contexto.Clientes.Local.ToBindingList();
+
             return ListaClientes;
         }
 
@@ -49,7 +48,6 @@ namespace BL.Farmacia
             }
 
             _contexto.SaveChanges();
-
             resultado.Exitoso = true;
             return resultado;
         }
@@ -78,6 +76,14 @@ namespace BL.Farmacia
         {
             var resultado = new Resultado();
             resultado.Exitoso = true;
+
+            if (cliente == null)
+            {
+                resultado.Mensaje = "Agregue un cliente valido";
+                resultado.Exitoso = false;
+
+                return resultado;
+            }
 
             if (string.IsNullOrEmpty(cliente.Nombre) == true)
             {
@@ -116,6 +122,11 @@ namespace BL.Farmacia
         public string Direccion { get; set; }
         public string Correo { get; set; }
         public bool Activo { get; set; }
+
+        public Cliente()
+        {
+            Activo = true;
+        }
     }
 
     public class Resultado
