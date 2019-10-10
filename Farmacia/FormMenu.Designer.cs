@@ -147,6 +147,7 @@
             this.reportesDeMedicamentosToolStripMenuItem.Name = "reportesDeMedicamentosToolStripMenuItem";
             this.reportesDeMedicamentosToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
             this.reportesDeMedicamentosToolStripMenuItem.Text = "Reportes de Medicamentos";
+            this.reportesDeMedicamentosToolStripMenuItem.Click += new System.EventHandler(this.reportesDeMedicamentosToolStripMenuItem_Click);
             // 
             // reporteDeClientesToolStripMenuItem
             // 
@@ -159,6 +160,7 @@
             this.reportesDeFacturaToolStripMenuItem.Name = "reportesDeFacturaToolStripMenuItem";
             this.reportesDeFacturaToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
             this.reportesDeFacturaToolStripMenuItem.Text = "Reportes de Factura";
+            this.reportesDeFacturaToolStripMenuItem.Click += new System.EventHandler(this.reportesDeFacturaToolStripMenuItem_Click);
             // 
             // reporteDeTransaccionesToolStripMenuItem
             // 

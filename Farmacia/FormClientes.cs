@@ -40,16 +40,7 @@ namespace Farmacia
                 MessageBox.Show(resultado.Mensaje);
             }
         }
-
-        private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
-        {
-            _clientesBL.AgregarCliente();
-            listaClientesBindingSource.MoveLast();
-
-            DeshabilitarHabilitarBotones(false);
-
-        }
-
+        
         private void DeshabilitarHabilitarBotones(bool valor)
         {
             bindingNavigatorMoveFirstItem.Enabled = valor;
@@ -96,6 +87,15 @@ namespace Farmacia
         {
             _clientesBL.CancelarCambios();
             DeshabilitarHabilitarBotones(true);
+        }
+
+        private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
+        {
+            _clientesBL.AgregarCliente();
+            listaClientesBindingSource.MoveLast();
+
+            DeshabilitarHabilitarBotones(false);
+
         }
     }
 }

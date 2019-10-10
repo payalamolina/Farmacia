@@ -67,5 +67,19 @@ namespace Farmacia
         {
 
         }
+
+        private void reportesDeMedicamentosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var formReporteMedicamentos = new FormReporteMedicamentos();
+            formReporteMedicamentos.MdiParent = this;
+            formReporteMedicamentos.Show();
+        }
+
+        private void reportesDeFacturaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var formReporteFacturas = new FormReporteFacturas();
+            formReporteFacturas.MdiParent = this;
+            formReporteFacturas.Show();
+        }
     }
 }
